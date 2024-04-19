@@ -4,13 +4,22 @@
 
 html {
   font-size: 62.5%;
+  transition: ease-in-out 150ms;
 }
 
 body {
   font-size: 1.6rem;
   /* font-family: ; */
 }
+/* Variables */
+:root {
+  --background: #42cca4;
 
+  --toast-background: #ebb85c;
+
+  --btn-background: #3b463b;
+  --btn-hover-background: #1b201b;
+}
 /*========== Common ==========*/
 a {
   text-decoration: none;
@@ -18,19 +27,28 @@ a {
 
 /* Buttons */
 .btn--primary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   padding: 2rem;
   border-radius: 1.2rem;
   color: #fff;
-  background-color: #3b463b;
+  background-color: var(--btn-background);
   font-size: 2rem;
 }
 
 .btn--primary:hover {
-  background-color: #1b201b;
+  background-color: var(--btn-hover-background);
+}
+
+.btn--sm {
+  padding: 1.2rem 1.6rem;
+  font-size: 1.6rem;
 }
 
 /*========== Intro ==========*/
 .intro {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,7 +56,7 @@ a {
   width: 70rem;
   height: 100vh;
   margin: 0 auto;
-  background-color: rgb(252, 164, 0);
+  background-color: var(--background);
 }
 
 .toast {
@@ -50,7 +68,7 @@ a {
   height: 50%;
   padding: 2rem;
   border-radius: 1.2rem;
-  background-color: aqua;
+  background-color: var(--toast-background);
 }
 
 .toast__headline {
@@ -76,6 +94,27 @@ a {
   margin-top: 2rem;
 }
 
-.intro .btn--primary {
+.start-btn {
   margin-top: 2rem;
+}
+
+.play-icon {
+  width: 2rem;
+  filter: invert(93%) sepia(94%) saturate(0%) hue-rotate(248deg)
+    brightness(106%) contrast(106%);
+}
+
+/*========== Questions =========*/
+.chevron-icon {
+  width: 1.6rem;
+  filter: invert(93%) sepia(94%) saturate(0%) hue-rotate(248deg)
+    brightness(106%) contrast(106%);
+  transform: rotate(180deg);
+}
+
+.back-btn {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
 }
