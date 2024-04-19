@@ -70,21 +70,20 @@ a {
   align-items: center;
   justify-content: center;
   width: 75%;
-  height: 50%;
   padding: 2rem;
   border-radius: 1.2rem;
   background-color: var(--toast-background);
 }
 
 .toast__headline {
-  width: 52%;
+  width: 60%;
   font-size: 3rem;
   text-align: center;
   letter-spacing: 0.5rem;
 }
 
 .toast__heading {
-  width: 80%;
+  width: 100%;
   margin-top: 2rem;
   font-size: 7rem;
   font-weight: 700;
@@ -150,6 +149,7 @@ a {
   gap: 2rem;
 }
 
-.option-row, .option-row a {
+.option-row,
+.option-row a {
   width: 100%;
 }
