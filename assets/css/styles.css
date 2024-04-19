@@ -9,19 +9,25 @@ html {
 
 body {
   font-size: 1.6rem;
-  /* font-family: ; */
+  font-family: "Arcade Normal";
 }
 /* Variables */
 :root {
-  --background: #42cca4;
+  --background: #6cc8a4;
 
-  --toast-background: #ebb85c;
+  --toast-background: #fab40a;
 
-  --btn-background: #3b463b;
-  --btn-hover-background: #1b201b;
+  --btn-background: #434343;
+  --btn-hover-background: #2b2b2b;
 
   --content-01: #fff;
   --content-02: #282e28;
+
+  --color-01: #1b2b9f;
+  --color-02: #1a5431;
+  --color-03: #6cc8a4;
+  --color-04: #fab40a;
+  --color-05: #434343;
 }
 /*========== Common ==========*/
 a {
@@ -76,16 +82,18 @@ a {
 }
 
 .toast__headline {
-  width: 60%;
-  font-size: 3rem;
+  /* width: 60%; */
+  font-size: 2rem;
   text-align: center;
   letter-spacing: 0.5rem;
 }
 
 .toast__heading {
+  font-family: "Karmatic Arcade";
   width: 100%;
-  margin-top: 2rem;
-  font-size: 7rem;
+  margin-top: 3rem;
+  font-size: 6rem;
+  line-height: 1.25;
   font-weight: 700;
   letter-spacing: 0.5rem;
   text-align: center;
@@ -131,15 +139,15 @@ a {
   justify-content: center;
   gap: 2rem;
   width: 100%;
-  min-height: 40%;
 }
-.question-card {
+.question {
   padding: 2rem;
-  text-align: center;
-  min-height: 30%;
   color: var(--content-02);
-  font-size: 4rem;
+  font-size: 2rem;
+  line-height: 1.25;
   font-weight: 700;
+  text-align: center;
+  word-spacing: -1rem;
 }
 
 .option-row {
@@ -152,4 +160,9 @@ a {
 .option-row,
 .option-row a {
   width: 100%;
+}
+
+
+.figure img  {
+  height: 30rem;
 }
