@@ -89,31 +89,40 @@
     <title>Hatlotoocmo</title>
   </head>
   <body>
-    <div class="container">
-      <section class="intro">
-        <div class="back-btn">
-          <a href="./index.html" class="btn--primary btn--sm"
-            ><img
-              src="./assets/img/chevron-icon.png"
-              alt=""
-              class="chevron-icon"
-            />Back</a
-          >
-        </div>
-        <div class="question-container">
-          <figure class="figure">
-            <img src="./assets/img/pop-cat.gif" alt="" />
-          </figure>
-          <div class="question">
-            How do you feel when you see this infinite pop cat?
+    <section class="screen">
+      <div class="screen__layout">
+        <section class="question-container">
+          <div class="progress-bar">
+            <div class="progress"></div>
           </div>
-          <div class="option-row">
-            <a href="#!" class="btn--primary option-1">Option 1</a>
-            <a href="#!" class="btn--primary option-2">Option 2</a>
+          <img
+            src="./assets/img/pop-cat.gif"
+            alt=""
+            class="question-illustration"
+          />
+          <div class="question" id="question"></div>
+          <div class="option-container">
+            <a href="#!" class="option" id="option1"></a>
+            <a href="#!" class="option" id="option2"></a>
+            <a href="#!" class="option" id="option3"></a>
           </div>
-        </div>
-      </section>
-      <section class="footer"></section>
-    </div>
+          <a href="#!" class="btn--primary btn--sm" id="start-again-btn"
+            >Start over again
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+              width="32px"
+              height="32px"
+            >
+              <path
+                d="M 6 4 L 6 6 L 4 6 L 4 8 L 2 8 L 2 10 L 6 10 L 6 26 L 17 26 L 17 24 L 8 24 L 8 10 L 12 10 L 12 8 L 10 8 L 10 6 L 8 6 L 8 4 L 6 4 z M 15 6 L 15 8 L 24 8 L 24 22 L 20 22 L 20 24 L 22 24 L 22 26 L 24 26 L 24 28 L 26 28 L 26 26 L 28 26 L 28 24 L 30 24 L 30 22 L 26 22 L 26 6 L 15 6 z"
+                fill="currentColor"
+              /></svg
+          ></a>
+        </section>
+      </div>
+    </section>
+    <section class="footer"></section>
+    <script src="./assets/script/questions.js"></script>
   </body>
 </html>
