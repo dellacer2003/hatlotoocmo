@@ -115,17 +115,9 @@ a {
   background-color: var(--toast-background);
 }
 
-.toast__headline {
-  font-size: 2rem;
-  font-weight: 800;
-  text-align: center;
-  letter-spacing: 0.5rem;
-}
-
 .toast__heading {
   font-family: "Karmatic Arcade";
-  margin-top: 3rem;
-  font-size: 6rem;
+  font-size: 5rem;
   line-height: 1.25;
   font-weight: 500;
   letter-spacing: 0.5rem;

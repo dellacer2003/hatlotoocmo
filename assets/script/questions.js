@@ -99,7 +99,6 @@ var question10 = {
 // Khai báo biến global để lưu trữ số thứ tự của câu hỏi hiện tại
 let currentQuestionNumber = 1;
 let step = 1;
-
 // Hàm để tính toán lại giá trị của currentProgress dựa trên currentQuestionNumber
 function getCurrentProgress() {
   return step - 1;
