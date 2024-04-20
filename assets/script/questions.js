@@ -98,7 +98,12 @@ var question10 = {
 
 // Khai báo biến global để lưu trữ số thứ tự của câu hỏi hiện tại
 let currentQuestionNumber = 1;
-let currentProgress = 1;
+let step = 1;
+
+// Hàm để tính toán lại giá trị của currentProgress dựa trên currentQuestionNumber
+function getCurrentProgress() {
+  return step - 1;
+}
 
 // Lấy ra thẻ div chứa câu hỏi và các lựa chọn
 const questionDiv = document.getElementById("question");
@@ -111,7 +116,6 @@ function updateQuestion(questionNumber) {
   const currentQuestion = window["question" + questionNumber];
   // Sử dụng số thứ tự của câu hỏi trong nội dung câu hỏi
   console.log(questionNumber); //Linh's code
-  console.log(currentQuestion); //Linh's code
   questionDiv.innerText = `Question ${questionNumber}: ${currentQuestion.question}`;
   option1.innerText = currentQuestion.options[0];
   option2.innerText = currentQuestion.options[1];
@@ -120,25 +124,27 @@ function updateQuestion(questionNumber) {
 updateQuestion(currentQuestionNumber);
 
 // Update progress
-function updateProgress(progress) {
+function updateProgress() {
+  const progress = getCurrentProgress();
   const percent = (progress / 10) * 100; // Tính phần trăm hoàn thành
+  console.log(progress);
   document.querySelector(".progress").style.width = percent + "%"; // Cập nhật độ dài của thanh progress
 }
-updateProgress(currentProgress);
+updateProgress();
 
 // Thêm sự kiện "click" cho mỗi thẻ <a> có class là "option"
 const options = document.querySelectorAll(".option");
 options.forEach((option) => {
   option.addEventListener("click", () => {
     if (currentQuestionNumber < 10) {
-      //nếu bé hơn 11 thì đọc ra ngoài mảng mất :D
       currentQuestionNumber++;
-    } else return;
-    if (currentProgress < 10) {
-      currentProgress++;
-    } else return;
+      step++;
+    } else if (currentQuestionNumber == 10 && step < 11) {
+      step++;
+    }
     updateQuestion(currentQuestionNumber);
-    updateProgress(currentProgress);
+    updateProgress();
+    resultReturn();
   });
 });
 
@@ -148,9 +154,17 @@ const startAgainBtn = document.getElementById("start-again-btn");
 startAgainBtn.addEventListener("click", () => {
   // Thiết lập lại số thứ tự của câu hỏi về 1
   currentQuestionNumber = 1;
-  currentProgress = 1;
+  step = 1;
   // Cập nhật lại câu hỏi và các lựa chọn cho câu hỏi đầu tiên
   updateQuestion(currentQuestionNumber);
   // Cập nhật lại progress bar khi bắt đầu lại từ đầu
-  updateProgress(currentProgress);
+  updateProgress();
 });
+
+function resultReturn() {
+  if (step === 11) {
+    setTimeout(() => {
+      window.location.href = "result.html";
+    }, 150); // Đợi 1 giây (1000 milliseconds) trước khi chuyển trang
+  }
+}
