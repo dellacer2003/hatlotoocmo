@@ -5,11 +5,15 @@
 html {
   font-size: 62.5%;
   transition: ease-in-out 150ms;
+
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 body {
   font-size: 1.6rem;
-  font-family: "Arcade Normal";
+  font-family: Arial, Helvetica, sans-serif;
 }
 /* Variables */
 :root {
@@ -47,6 +51,7 @@ a {
   border-radius: 1.2rem;
   color: var(--content-01);
   background-color: var(--btn-background);
+  font-family: "Arcade Normal";
   text-align: center;
 }
 
@@ -67,16 +72,17 @@ a {
 /* Option */
 .option {
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
   border-radius: 1.2rem;
-  padding: 1.2rem;
+  padding: 1.2rem 2.4rem;
   color: var(--content-01);
   background-color: var(--btn-background);
-  font-size: 1.6rem;
+  font-size: 2rem;
+  font-weight: 800;
   line-height: 1.75;
-  letter-spacing: 0.1rem;
-  word-spacing: 0.2rem;
+  /* letter-spacing: 0.1rem;
+  word-spacing: -0.5rem; */
 }
 
 .option:hover {
@@ -111,6 +117,7 @@ a {
 
 .toast__headline {
   font-size: 2rem;
+  font-weight: 800;
   text-align: center;
   letter-spacing: 0.5rem;
 }
@@ -126,7 +133,8 @@ a {
 }
 
 .toast__desc {
-  font-size: 3rem;
+  font-family: "Arcade Normal";
+  font-size: 2rem;
   font-weight: 400;
   text-align: center;
   margin-top: 2rem;
@@ -168,13 +176,16 @@ a {
   height: 100%;
   border-radius: 1rem;
   background-color: var(--color-02);
+  transition: ease-in-out 150ms;
 }
 
 .question-illustration {
   width: 30rem;
+  margin-top: 1rem;
 }
 
 .question {
+  font-family: "Arcade Normal";
   margin-top: 2rem;
   font-size: 2rem;
   text-align: center;

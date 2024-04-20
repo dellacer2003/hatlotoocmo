@@ -96,13 +96,9 @@ var question10 = {
   ],
 };
 
-document.getElementById("question").innerText = question1.question;
-document.getElementById("option1").innerText = question1.options[0];
-document.getElementById("option2").innerText = question1.options[1];
-document.getElementById("option3").innerText = question1.options[2];
-
 // Khai báo biến global để lưu trữ số thứ tự của câu hỏi hiện tại
 let currentQuestionNumber = 1;
+let currentProgress = 0;
 
 // Lấy ra thẻ div chứa câu hỏi và các lựa chọn
 const questionDiv = document.getElementById("question");
@@ -119,31 +115,29 @@ function updateQuestion(questionNumber) {
   option2.innerText = currentQuestion.options[1];
   option3.innerText = currentQuestion.options[2];
 }
-
-// Gọi hàm để cập nhật câu hỏi và các lựa chọn cho câu hỏi đầu tiên
 updateQuestion(currentQuestionNumber);
+
+// Update progress
+function updateProgress(progress) {
+  const percent = (progress / 10) * 100; // Tính phần trăm hoàn thành
+  document.querySelector(".progress").style.width = percent + "%"; // Cập nhật độ dài của thanh progress
+}
+updateProgress(currentProgress);
 
 // Thêm sự kiện "click" cho mỗi thẻ <a> có class là "option"
 const options = document.querySelectorAll(".option");
 options.forEach((option) => {
   option.addEventListener("click", () => {
-    // Tăng số thứ tự của câu hỏi lên 1
-    currentQuestionNumber++;
-    // Nếu đã đến câu hỏi cuối cùng, không làm gì cả
-    if (currentQuestionNumber > 10) return;
-    // Ngược lại, cập nhật câu hỏi và các lựa chọn cho câu hỏi tiếp theo
+    if (currentQuestionNumber < 11) {
+      currentQuestionNumber++;
+    } else return;
+    if (currentProgress < 11) {
+      currentProgress++;
+    } else return;
     updateQuestion(currentQuestionNumber);
+    updateProgress(currentProgress);
   });
 });
-
-// Lấy ra phần tử progress bar
-const progressBar = document.querySelector(".progress-bar");
-
-// Hàm để cập nhật độ đầy của thanh progress bar
-function updateProgressBar(currentQuestionNumber) {
-  const percent = (currentQuestionNumber / 10) * 100; // Tính phần trăm hoàn thành
-  progressBar.querySelector(".progress").style.width = percent + "%"; // Cập nhật độ dài của thanh progress
-}
 
 // Lấy ra thẻ có id là "start-again-btn"
 const startAgainBtn = document.getElementById("start-again-btn");
@@ -152,8 +146,9 @@ const startAgainBtn = document.getElementById("start-again-btn");
 startAgainBtn.addEventListener("click", () => {
   // Thiết lập lại số thứ tự của câu hỏi về 1
   currentQuestionNumber = 1;
+  currentProgress = 0;
   // Cập nhật lại câu hỏi và các lựa chọn cho câu hỏi đầu tiên
   updateQuestion(currentQuestionNumber);
   // Cập nhật lại progress bar khi bắt đầu lại từ đầu
-  updateProgressBar(currentQuestionNumber);
+  updateProgress(currentProgress);
 });
