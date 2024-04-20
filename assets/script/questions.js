@@ -98,7 +98,7 @@ var question10 = {
 
 // Khai báo biến global để lưu trữ số thứ tự của câu hỏi hiện tại
 let currentQuestionNumber = 1;
-let currentProgress = 0;
+let currentProgress = 1; // lệch 1 -> tí cái thanh nó kh có đồng bộ 
 
 // Lấy ra thẻ div chứa câu hỏi và các lựa chọn
 const questionDiv = document.getElementById("question");
@@ -110,6 +110,8 @@ const option3 = document.getElementById("option3");
 function updateQuestion(questionNumber) {
   const currentQuestion = window["question" + questionNumber];
   // Sử dụng số thứ tự của câu hỏi trong nội dung câu hỏi
+  console.log(questionNumber)
+  console.log(currentQuestion)
   questionDiv.innerText = `Question ${questionNumber}: ${currentQuestion.question}`;
   option1.innerText = currentQuestion.options[0];
   option2.innerText = currentQuestion.options[1];
@@ -128,10 +130,10 @@ updateProgress(currentProgress);
 const options = document.querySelectorAll(".option");
 options.forEach((option) => {
   option.addEventListener("click", () => {
-    if (currentQuestionNumber < 11) {
+    if (currentQuestionNumber < 10) { //nếu bé hơn 11 thì đọc ra ngoài mảng mất :D 
       currentQuestionNumber++;
     } else return;
-    if (currentProgress < 11) {
+    if (currentProgress < 10) {
       currentProgress++;
     } else return;
     updateQuestion(currentQuestionNumber);
@@ -145,7 +147,7 @@ const startAgainBtn = document.getElementById("start-again-btn");
 // Thêm sự kiện "click" vào thẻ
 startAgainBtn.addEventListener("click", () => {
   // Thiết lập lại số thứ tự của câu hỏi về 1
-  currentQuestionNumber = 1;
+  currentQuestionNumber = 0;
   currentProgress = 0;
   // Cập nhật lại câu hỏi và các lựa chọn cho câu hỏi đầu tiên
   updateQuestion(currentQuestionNumber);
