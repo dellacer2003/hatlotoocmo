@@ -65,12 +65,12 @@ levelBtn.forEach((btn) => {
 
 function lockedLevel(classIndex) {
   const background = document.querySelector(".character-illustration");
-  const warning = document.querySelector(".warning");
+  const noti = document.querySelector(".noti");
   if (levelLib.btnClass[classIndex] !== "intern-level") {
     background.style.filter = "grayscale(100%)";
-    warning.style.display = "inline";
+    noti.style.display = "flex";
   } else {
     background.style.filter = "";
-    warning.style.display = "none";
+    noti.style.display = "none";
   }
 }

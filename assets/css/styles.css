@@ -357,15 +357,23 @@ a {
   z-index: 2;
 }
 
-.warning {
-  display: none;
+.noti {
   position: absolute;
   width: fit-content;
   right: 0;
+  display: none;
+  align-items: center;
+}
+
+.warning {
   color: var(--manager);
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 800;
   letter-spacing: -0.03rem;
+}
+
+.noti img {
+  width: 3.8rem;
 }
 
 .divider {
