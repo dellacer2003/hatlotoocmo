@@ -164,6 +164,6 @@ function resultReturn() {
   if (step === 11) {
     setTimeout(() => {
       window.location.href = "result.html";
-    }, 150); // Đợi 1 giây (1000 milliseconds) trước khi chuyển trang
+    }, 300); // Đợi 1 giây (1000 milliseconds) trước khi chuyển trang
   }
 }

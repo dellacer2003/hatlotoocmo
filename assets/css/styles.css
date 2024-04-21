@@ -19,7 +19,8 @@ body {
   --background-01: #6cc8a4;
   --background-02: #7e7e7e;
 
-  --toast-background: #fab40a;
+  --toast-background-01: #fab40a;
+  --toast-background-02: #ffbf28;
 
   --btn-background: #434343;
   --btn-hover-background: #808080;
@@ -69,6 +70,11 @@ a {
 .btn--lg {
   padding: 2rem;
   font-size: 2rem;
+}
+
+.btn--md {
+  padding: 1.6rem;
+  font-size: 1.6rem;
 }
 
 .btn--sm {
@@ -156,7 +162,7 @@ a {
   padding: 2rem;
   box-shadow: -10px 0 0 0 black, 10px 0 0 0 black, 0 -10px 0 0 black,
     0 10px 0 0 black;
-  background-color: var(--toast-background);
+  background-color: var(--toast-background-01);
 }
 
 .toast__heading {
@@ -203,6 +209,7 @@ a {
   width: 100%;
   height: 10px;
   margin-top: 2rem;
+  border: 2px solid black;
   border-radius: 1rem;
 
   background-color: #ccc;
@@ -248,7 +255,8 @@ a {
 
 /*========== Result ==========*/
 .result__heading {
-  font-size: 3rem;
+  font-family: "Karmatic Arcade";
+  font-size: 2.4rem;
   line-height: 1.25;
   font-weight: 800;
   letter-spacing: 0.5rem;
@@ -267,25 +275,31 @@ a {
   justify-content: center;
 
   width: 100%;
-  height: 25rem;
+  height: 20rem;
   margin-top: 1.2rem;
-  box-shadow: -4px 0 0 0 black, 4px 0 0 0 black, 0 -4px 0 0 black,
-    0 4px 0 0 black;
+  box-shadow: -5px 0 0 0 black, 5px 0 0 0 black, 0 -5px 0 0 black,
+    0 5px 0 0 black;
 
   background: url(../img/environment/air-background.jpg) no-repeat;
   background-size: cover;
-  background-position: 0% 50%;
+  background-position: 0% 55%;
 
   filter: brightness(1);
   overflow: hidden;
 }
 
 .character-img {
-  width: 100%;
+  width: 85%;
   filter: drop-shadow(10px 0px 10px var(--color-01))
     drop-shadow(-10px 0px 10px var(--color-01))
     drop-shadow(0px 10px 10px var(--color-01))
     drop-shadow(0px -10px 10px var(--color-01));
+  cursor: pointer;
+  transition: ease-in-out 150ms;
+}
+
+.character-img:hover {
+  transform: scale(1.1);
 }
 
 .character-name {
@@ -308,35 +322,36 @@ a {
   position: relative;
   padding-bottom: 2rem;
   transform: translateY(30%);
+  transition: ease-in-out 150ms;
 }
 
 .character-level:hover .level-selector,
 .character-level:hover .level-selector-director {
-  display: flex;
+  visibility: visible;
 }
 
 .level-selector {
   position: absolute;
-  bottom: -6rem;
+  bottom: -4.4rem;
   left: 0;
   transform: translateX(-36.5%);
   display: flex;
   gap: 1.5rem;
-  padding: 2rem;
+  padding: 1.2rem;
   background-color: var(--content-01);
   box-shadow: -4px 0 0 0 black, 4px 0 0 0 black, 0 -4px 0 0 black,
     0 4px 0 0 black;
-  display: none;
+  visibility: hidden;
   z-index: 1;
 }
 
 .level-selector-director {
   position: absolute;
-  top: 1.85rem;
+  top: 1.92rem;
   left: 1.5rem;
   width: 3rem;
   transform: rotate(-90deg);
-  display: none;
+  visibility: hidden;
   z-index: 2;
 }
 
@@ -352,27 +367,25 @@ a {
 }
 
 .divider {
-  height: 0.4rem;
+  height: 0.5rem;
   width: 100%;
   background-color: black;
-  margin-top: 1rem;
+  margin-top: 0.8rem;
 }
 
 /* Stats */
 .stats-heading {
-  font-family: "Karmatic Arcade";
-  font-size: 2.6rem;
-  font-weight: 500;
-  letter-spacing: 0.5rem;
-  text-align: left;
-  margin-top: 2.8rem;
+  font-family: "Arcade Normal";
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-top: 2rem;
 }
 
 .stats {
   display: grid;
   grid-template-rows: repeat(2, 3rem);
-  gap: 0.5rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  margin-left: 2rem;
 }
 
 .stat-item {
@@ -383,15 +396,26 @@ a {
 }
 
 .stat-name {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 800;
+  text-transform: uppercase;
 }
 
 .stat-bar {
+  position: relative;
   height: 2rem;
   background-color: #ccc;
+  border: 2px solid black;
   border-radius: 1rem;
-  overflow: hidden;
+}
+
+.stat-bar::before {
+  position: absolute;
+  top: -0.15rem;
+  left: -1.5rem;
+  content: ":";
+  font-size: 2.2rem;
+  font-weight: 800;
 }
 
 .stat-score {
@@ -407,4 +431,41 @@ a {
 
 #stat-02 {
   width: 20%;
+}
+
+/* Character desc */
+.character_desc {
+  padding: 1.2rem;
+  margin-top: 2rem;
+  height: 15rem;
+  box-shadow: -5px 0 0 0 black, 5px 0 0 0 black, 0 -5px 0 0 black,
+    0 5px 0 0 black;
+  background-color: var(--content-01);
+
+  text-align: justify;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.03rem;
+
+  overflow: auto;
+  user-select: text;
+}
+
+/* Result action */
+.actions {
+  display: grid;
+  grid-template-columns: 20rem 1fr;
+  column-gap: 5%;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+#journey-btn {
+  background-color: var(--toast-background-01);
+  color: var(--content-02);
+}
+
+#journey-btn:hover {
+  background-color: var(--toast-background-02);
 }
