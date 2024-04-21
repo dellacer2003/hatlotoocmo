@@ -4,7 +4,6 @@
 
 html {
   font-size: 62.5%;
-  transition: ease-in-out 150ms;
 
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
@@ -13,7 +12,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Reddit Mono", monospace;
 }
 /* Variables */
 :root {
@@ -23,15 +22,18 @@ body {
   --toast-background: #fab40a;
 
   --btn-background: #434343;
-  --btn-hover-background: #2b2b2b;
+  --btn-hover-background: #808080;
 
   --content-01: #fff;
   --content-02: #282e28;
 
-  --color-01: #1b2b9f;
+  --color-01: #1b2a9fd8;
   --color-02: #1a5431;
   --color-03: #6cc8a4;
-  --color-04: #fab40a;
+  --senior: #b88204;
+  --senior-hover: #eba708;
+  --manager: #b80404;
+  --manager-hover: #ff4545;
   --color-05: #434343;
 }
 /*========== Common ==========*/
@@ -61,6 +63,7 @@ a {
 
 .btn--primary:hover {
   background-color: var(--btn-hover-background);
+  transform: scale(1.02);
 }
 
 .btn--lg {
@@ -71,6 +74,35 @@ a {
 .btn--sm {
   padding: 1.2rem;
   font-size: 1.2rem;
+}
+
+/* level button */
+.btn--level {
+  height: fit-content;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.senior-level {
+  background-color: var(--senior);
+}
+
+.senior-level:hover {
+  background-color: var(--senior-hover);
+}
+
+.manager-level {
+  background-color: var(--manager);
+}
+
+.manager-level:hover {
+  background-color: var(--manager-hover);
+}
+
+#level-label {
+  height: fit-content;
+  padding: 0.5rem;
+  font-size: 1rem;
 }
 
 /* Option */
@@ -87,7 +119,7 @@ a {
   background-color: var(--content-01);
 
   font-size: 1.8rem;
-  font-weight: 800;
+  font-weight: 900;
   line-height: 1.75;
 }
 
@@ -106,6 +138,10 @@ a {
   padding: 2rem 2rem;
   margin: 0 auto;
   background-color: var(--background-01);
+}
+
+.screen--start {
+  align-items: start;
 }
 
 .screen__layout {
@@ -141,7 +177,7 @@ a {
 }
 
 /* start button */
-.screen .btn--primary {
+.toast .btn--primary {
   margin-top: 3rem;
 }
 
@@ -204,4 +240,171 @@ a {
   gap: 2rem;
   width: 100%;
   margin-top: 2rem;
+}
+
+.question-container .btn--primary {
+  margin-top: 2rem;
+}
+
+/*========== Result ==========*/
+.result__heading {
+  font-size: 3rem;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: 0.5rem;
+  text-align: center;
+}
+
+/* .character-card {
+  display: flex;
+  flex-direction: column;
+} */
+
+.character-illustration {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 25rem;
+  margin-top: 1.2rem;
+  box-shadow: -4px 0 0 0 black, 4px 0 0 0 black, 0 -4px 0 0 black,
+    0 4px 0 0 black;
+
+  background: url(../img/environment/air-background.jpg) no-repeat;
+  background-size: cover;
+  background-position: 0% 50%;
+
+  filter: brightness(1);
+  overflow: hidden;
+}
+
+.character-img {
+  width: 100%;
+  filter: drop-shadow(10px 0px 10px var(--color-01))
+    drop-shadow(-10px 0px 10px var(--color-01))
+    drop-shadow(0px 10px 10px var(--color-01))
+    drop-shadow(0px -10px 10px var(--color-01));
+}
+
+.character-name {
+  font-family: "Karmatic Arcade";
+  font-size: 3rem;
+  font-weight: 500;
+  letter-spacing: 0.5rem;
+  text-align: left;
+}
+
+.character-card__row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.character-level {
+  position: relative;
+  padding-bottom: 2rem;
+  transform: translateY(30%);
+}
+
+.character-level:hover .level-selector,
+.character-level:hover .level-selector-director {
+  display: flex;
+}
+
+.level-selector {
+  position: absolute;
+  bottom: -6rem;
+  left: 0;
+  transform: translateX(-36.5%);
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: var(--content-01);
+  box-shadow: -4px 0 0 0 black, 4px 0 0 0 black, 0 -4px 0 0 black,
+    0 4px 0 0 black;
+  display: none;
+  z-index: 1;
+}
+
+.level-selector-director {
+  position: absolute;
+  top: 1.85rem;
+  left: 1.5rem;
+  width: 3rem;
+  transform: rotate(-90deg);
+  display: none;
+  z-index: 2;
+}
+
+.warning {
+  display: none;
+  position: absolute;
+  width: fit-content;
+  right: 0;
+  color: var(--manager);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.03rem;
+}
+
+.divider {
+  height: 0.4rem;
+  width: 100%;
+  background-color: black;
+  margin-top: 1rem;
+}
+
+/* Stats */
+.stats-heading {
+  font-family: "Karmatic Arcade";
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: 0.5rem;
+  text-align: left;
+  margin-top: 2.8rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-rows: repeat(2, 3rem);
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.stat-name {
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.stat-bar {
+  height: 2rem;
+  background-color: #ccc;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.stat-score {
+  height: 100%;
+  border-radius: 1rem;
+  background-color: var(--color-02);
+  transition: ease-in-out 150ms;
+}
+
+#stat-01 {
+  width: 80%;
+}
+
+#stat-02 {
+  width: 20%;
 }
