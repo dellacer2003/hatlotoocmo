@@ -21,6 +21,9 @@ body {
 
   --toast-background-01: #fab40a;
   --toast-background-02: #ffbf28;
+  --toast-background-03: #a57847;
+  --toast-border-01: #59392c;
+  --toast-border-02: #7a5330;
 
   --btn-background: #434343;
   --btn-hover-background: #808080;
@@ -30,7 +33,7 @@ body {
 
   --color-01: #1b2a9fd8;
   --color-02: #1a5431;
-  --color-03: #6cc8a4;
+  --color-03: #5ec471;
   --senior: #b88204;
   --senior-hover: #eba708;
   --manager: #b80404;
@@ -60,6 +63,8 @@ a {
 
   font-family: "Arcade Normal";
   text-align: center;
+
+  transition: ease-in-out 150ms;
 }
 
 .btn--primary:hover {
@@ -121,16 +126,20 @@ a {
   font-size: 1.8rem;
   font-weight: 900;
   line-height: 1.75;
+
+  transition: ease-in-out 150ms;
 }
 
 .option:hover {
   color: var(--content-01);
   background-color: var(--background-02);
+  box-shadow: -5px 0 0 0 white, 5px 0 0 0 white, 0 -5px 0 0 white,
+    0 5px 0 0 white;
 }
 
 /*========== Screen ==========*/
 .screen {
-  /* box-sizing: content-box; */
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -140,6 +149,9 @@ a {
   margin: 0 auto;
   border: 5px solid black;
   background-color: var(--background-01);
+  background: url(/assets/img/environment/01.jpg) no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
 }
 
 .screen--start {
@@ -151,22 +163,41 @@ a {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  z-index: 0;
 }
 
 /* toast */
 .toast {
-  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
   padding: 2rem;
-  box-shadow: -10px 0 0 0 black, 10px 0 0 0 black, 0 -10px 0 0 black,
-    0 10px 0 0 black;
-  background-color: var(--toast-background-01);
+  box-shadow: -10px 0 0 0 var(--toast-border-01),
+    10px 0 0 0 var(--toast-border-01), 0 -10px 0 0 var(--toast-border-01),
+    0 10px 0 0 var(--toast-border-01), inset -10px 0 0 0 var(--toast-border-02),
+    inset 10px 0 0 0 var(--toast-border-02),
+    inset 0 -10px 0 0 var(--toast-border-02),
+    inset 0 10px 0 0 var(--toast-border-02);
+  background-color: var(--toast-background-03);
 }
 
 .toast__heading {
   font-family: "Karmatic Arcade";
   font-size: 5rem;
   line-height: 1.25;
-  font-weight: 500;
+  font-weight: 900;
   letter-spacing: 0.5rem;
   text-align: center;
 }
@@ -180,14 +211,14 @@ a {
 }
 
 /* start button */
-.toast .btn--primary {
+#start-btn {
   margin-top: 3rem;
+  color: var(--content-02);
+  background-color: var(--toast-background-01);
 }
 
 .play-icon {
   width: 2rem;
-  filter: invert(93%) sepia(94%) saturate(0%) hue-rotate(248deg)
-    brightness(106%) contrast(106%);
 }
 
 /*========== Questions =========*/
@@ -205,7 +236,7 @@ a {
 .progress-bar {
   width: 100%;
   height: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   border: 2px solid black;
   border-radius: 1rem;
 
@@ -227,21 +258,32 @@ a {
 }
 
 .question {
-  min-height: 8rem;
+  display: flex;
+  align-items: center;
+  min-height: 10.1rem;
+  padding: 1rem;
   margin-top: 1rem;
+
+  background-color: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  color: var(--content-02);
+
   font-family: "Arcade Normal";
   font-size: 1.8rem;
   text-align: center;
   line-height: 1.5;
   letter-spacing: -0.05rem;
   word-spacing: -0.16rem;
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff,
+    -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
 }
 
 .option-container {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, minmax(8rem, 1fr));
-  gap: 2rem;
+  gap: 1.2rem;
   width: 100%;
   margin-top: 2rem;
 }
@@ -252,12 +294,18 @@ a {
 
 /*========== Result ==========*/
 .result__heading {
-  font-family: "Karmatic Arcade";
+  font-family: "Arcade Normal";
   font-size: 2.4rem;
   line-height: 1.25;
   font-weight: 800;
   letter-spacing: 0.5rem;
   text-align: center;
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff,
+    -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}
+
+.character-card {
+  margin-top: 1.2rem;
 }
 
 .character-illustration {
@@ -268,7 +316,7 @@ a {
 
   width: 100%;
   height: 20rem;
-  margin-top: 1.2rem;
+
   box-shadow: -5px 0 0 0 black, 5px 0 0 0 black, 0 -5px 0 0 black,
     0 5px 0 0 black;
 
@@ -296,11 +344,13 @@ a {
 
 .character-name,
 .journey-heading {
-  font-family: "Karmatic Arcade";
+  font-family: "Arcade Normal";
   font-size: 3rem;
   font-weight: 500;
   letter-spacing: 0.5rem;
   text-align: left;
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff,
+    -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
 }
 
 .character-card__row {
@@ -309,62 +359,6 @@ a {
   align-items: center;
   gap: 2rem;
   margin-top: 2rem;
-}
-
-.character-level {
-  position: relative;
-  padding: 0 4rem 2rem 4rem;
-  transform: translateY(30%) translateX(-20%);
-  transition: ease-in-out 150ms;
-}
-
-.character-level:hover .level-selector,
-.character-level:hover .level-selector-director {
-  visibility: visible;
-}
-
-.level-selector {
-  position: absolute;
-  bottom: -4.4rem;
-  left: 4.2rem;
-  transform: translateX(-36.5%);
-  display: flex;
-  gap: 1.5rem;
-  padding: 1.2rem;
-  background-color: var(--content-01);
-  box-shadow: -4px 0 0 0 black, 4px 0 0 0 black, 0 -4px 0 0 black,
-    0 4px 0 0 black;
-  visibility: hidden;
-  z-index: 1;
-}
-
-.level-selector-director {
-  position: absolute;
-  top: 1.92rem;
-  left: 6rem;
-  width: 3rem;
-  transform: rotate(-90deg);
-  visibility: hidden;
-  z-index: 2;
-}
-
-.noti {
-  position: absolute;
-  width: fit-content;
-  right: 0;
-  display: none;
-  align-items: center;
-}
-
-.warning {
-  color: var(--manager);
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: -0.03rem;
-}
-
-.noti img {
-  width: 3.8rem;
 }
 
 .divider {
@@ -380,6 +374,11 @@ a {
   font-size: 2.2rem;
   font-weight: 900;
   margin-top: 2rem;
+}
+
+.character-stats {
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff,
+    -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
 }
 
 .stats {
@@ -406,7 +405,7 @@ a {
   position: relative;
   height: 2rem;
   background-color: #ccc;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 1rem;
 }
 

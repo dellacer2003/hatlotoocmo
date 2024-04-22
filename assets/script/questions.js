@@ -68,7 +68,7 @@ var question7 = {
 
 var question8 = {
   question:
-    "You're curious to try out a new sport! What type of sport are you most likely to explore?",
+    "You're collaborating on a group presentation! How do you approach the design and delivery of the content?",
   options: [
     "Taking the lead in organizing the structure and confidently delivering key points with enthusiasm and conviction",
     "Supporting your teammates by contributing ideas and providing assistance with research and preparation",
