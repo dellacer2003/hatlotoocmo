@@ -35,6 +35,7 @@ const characterDesc = document.querySelector(".character_desc");
 function changeCharDesc(newDesc) {
   characterDesc.innerText = newDesc;
 }
+
 // Default desc
 characterDesc.innerText = levelLib.desc[0];
 
@@ -52,7 +53,6 @@ levelBtn.forEach((btn) => {
       const desc = levelLib.desc[classIndex];
       changeCharImgSrc(src);
       changeStats(stats);
-      lockedLevel(classIndex);
       changeCharDesc(desc);
       btnLabel.classList.replace(
         btnLabel.classList[1],
@@ -62,15 +62,3 @@ levelBtn.forEach((btn) => {
     }
   });
 });
-
-function lockedLevel(classIndex) {
-  const background = document.querySelector(".character-illustration");
-  const noti = document.querySelector(".noti");
-  if (levelLib.btnClass[classIndex] !== "intern-level") {
-    background.style.filter = "grayscale(100%)";
-    noti.style.display = "flex";
-  } else {
-    background.style.filter = "";
-    noti.style.display = "none";
-  }
-}

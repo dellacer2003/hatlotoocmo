@@ -83,12 +83,6 @@ a {
 }
 
 /* level button */
-.btn--level {
-  height: fit-content;
-  padding: 0.5rem;
-  font-size: 1rem;
-}
-
 .senior-level {
   background-color: var(--senior);
 }
@@ -156,6 +150,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 /* toast */
@@ -209,7 +204,7 @@ a {
 
 .progress-bar {
   width: 100%;
-  height: 10px;
+  height: 1.5rem;
   margin-top: 2rem;
   border: 2px solid black;
   border-radius: 1rem;
@@ -265,11 +260,6 @@ a {
   text-align: center;
 }
 
-/* .character-card {
-  display: flex;
-  flex-direction: column;
-} */
-
 .character-illustration {
   position: relative;
   display: flex;
@@ -304,7 +294,8 @@ a {
   transform: scale(1.1);
 }
 
-.character-name {
+.character-name,
+.journey-heading {
   font-family: "Karmatic Arcade";
   font-size: 3rem;
   font-weight: 500;
@@ -436,7 +427,7 @@ a {
 }
 
 #stat-01 {
-  width: 80%;
+  width: 60%;
 }
 
 #stat-02 {
@@ -477,5 +468,107 @@ a {
 }
 
 #journey-btn:hover {
+  background-color: var(--toast-background-02);
+}
+
+/*========== Journey ==========*/
+.journey-heading {
+  margin-top: 0.4rem;
+}
+
+.card-list-layout {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+/* Card */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.card input {
+  position: relative;
+  width: 100%;
+  height: 30rem;
+}
+.card input::before,
+.card input::after {
+  position: absolute;
+  top: 0;
+
+  content: "";
+  width: 100%;
+  height: 30rem;
+  filter: grayscale(100%);
+  cursor: pointer;
+  transition: ease-in-out 150ms;
+}
+
+.card input::before {
+  box-shadow: -5px 0 0 0 black, 5px 0 0 0 black, 0 -5px 0 0 black,
+    0 5px 0 0 black;
+  background: url(../img/environment/air-background.jpg) no-repeat;
+}
+
+.card input::after {
+  background-position: 50% 50%;
+  background-size: 60rem;
+}
+
+[id="intern-level"]::after {
+  background: url(../img/character/eagle/intern-eagle.png) no-repeat;
+}
+[id="senior-level"]::after {
+  background: url(../img/character/eagle/senior-eagle.png) no-repeat;
+}
+[id="manager-level"]::after {
+  background: url(../img/character/eagle/manager-eagle.png) no-repeat;
+}
+
+.card input:hover::before,
+.card input:checked::before {
+  box-shadow: -5px 0 0 0 white, 5px 0 0 0 white, 0 -5px 0 0 white,
+    0 5px 0 0 white;
+}
+
+.card input:checked::before,
+.card input:checked::after,
+.card input:checked + .label {
+  filter: grayscale(0%);
+}
+
+.card:hover input::after {
+  transform: scale(1.1);
+}
+
+.label {
+  padding: 0.8rem 1.6rem;
+  font-size: 1.2rem;
+  filter: grayscale(100%);
+  transition: ease-in-out 150ms;
+}
+
+.divider--journey {
+  margin-top: 1.5rem;
+}
+
+.character-stats--journey {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+#missions-btn {
+  margin-top: 3rem;
+  background-color: var(--toast-background-01);
+  color: var(--content-02);
+}
+
+#missions-btn:hover {
   background-color: var(--toast-background-02);
 }

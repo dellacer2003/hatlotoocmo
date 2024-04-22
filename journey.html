@@ -95,18 +95,67 @@
     <title>Hatlotoocmo</title>
   </head>
   <body>
-    <section class="screen">
+    <section class="screen screen--start">
       <div class="screen__layout">
-        <article class="toast">
-          <h1 class="toast__heading">A team with esteem</h1>
-          <p class="toast__desc">- Hatlotoocmo -</p>
-          <a href="questions.html" class="btn--primary btn--lg" id="start-btn"
-            >What Animal Are You?
-            <img src="./assets/img/play-icon.png" alt="" class="play-icon"
-          /></a>
-        </article>
+        <div class="character-name">Ego Eagle</div>
+        <div class="journey-heading">Journey</div>
+        <div class="card-list-layout">
+          <div class="card journey__card">
+            <input
+              class="default-card"
+              type="radio"
+              id="intern-level"
+              name="level-card"
+            />
+            <a
+              href="#!"
+              id="intern-level"
+              class="btn--primary label intern-level"
+              >Intern
+            </a>
+          </div>
+          <div class="card journey__card">
+            <input type="radio" id="senior-level" name="level-card" />
+            <a
+              href="#!"
+              id="intern-level"
+              class="btn--primary label senior-level"
+              >Senior
+            </a>
+          </div>
+          <div class="card journey__card">
+            <input type="radio" id="manager-level" name="level-card" />
+            <a
+              href="#!"
+              id="intern-level"
+              class="btn--primary label manager-level"
+              >Manager
+            </a>
+          </div>
+        </div>
+        <div class="character-stats character-stats--journey">
+          <h2 class="stats-heading">Stats</h2>
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-name">Self-esteem</div>
+              <div class="stat-bar">
+                <div id="stat-01" class="stat-score"></div>
+              </div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-name">Adaptability</div>
+              <div class="stat-bar">
+                <div id="stat-02" class="stat-score"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="#!" id="missions-btn" class="btn--primary btn--md btn"
+          >See your missions!</a
+        >
       </div>
     </section>
     <section class="footer"></section>
+    <script src="./assets/script/journey.js"></script>
   </body>
 </html>
