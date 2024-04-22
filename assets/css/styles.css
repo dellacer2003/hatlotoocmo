@@ -434,7 +434,7 @@ a {
 }
 
 /* Character desc */
-.character_desc {
+.character-desc {
   padding: 1.2rem;
   margin-top: 2rem;
   height: 15rem;
@@ -449,7 +449,19 @@ a {
   letter-spacing: -0.03rem;
 
   overflow: auto;
-  user-select: text;
+}
+
+.character-desc ul {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  height: 100%;
+  list-style: inside disc;
+  gap: 1rem;
+}
+
+.bold {
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 /* Result action */
