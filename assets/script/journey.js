@@ -34,21 +34,19 @@ journeyCard.forEach((card) => {
 });
 
 // Event listener cho các thẻ label
-document.addEventListener("DOMContentLoaded", function () {
-  // Lặp qua tất cả các thẻ có class là "journey__card"
-  document.querySelectorAll(".journey__card").forEach(function (card) {
-    // Tìm phần tử <a> có class là "label" trong từng thẻ
-    var label = card.querySelector(".label");
+// Event listener cho các thẻ label
+document.querySelectorAll(".journey__card").forEach(function (card) {
+  // Tìm phần tử <a> có class là "label" trong từng thẻ
+  var label = card.querySelector(".label");
 
-    // Thêm sự kiện click cho phần tử <a> tìm được
-    label.addEventListener("click", function () {
-      // Tìm phần tử <input> trong cùng một thẻ
-      var input = card.querySelector('input[type="radio"]');
+  // Thêm sự kiện click cho phần tử <a> tìm được
+  label.addEventListener("click", function () {
+    // Tìm phần tử <input> trong cùng một thẻ
+    var input = card.querySelector('input[type="radio"]');
 
-      // Nếu tìm thấy phần tử <input>, đặt thuộc tính checked của nó thành true
-      if (input) {
-        input.checked = true;
-      }
-    });
+    // Nếu tìm thấy phần tử <input>, đặt thuộc tính checked của nó thành true
+    if (input) {
+      input.checked = true;
+    }
   });
 });
