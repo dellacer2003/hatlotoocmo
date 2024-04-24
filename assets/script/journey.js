@@ -33,20 +33,42 @@ journeyCard.forEach((card) => {
   });
 });
 
-// Event listener cho các thẻ label
-// Event listener cho các thẻ label
-document.querySelectorAll(".journey__card").forEach(function (card) {
-  // Tìm phần tử <a> có class là "label" trong từng thẻ
-  var label = card.querySelector(".label");
 
-  // Thêm sự kiện click cho phần tử <a> tìm được
-  label.addEventListener("click", function () {
-    // Tìm phần tử <input> trong cùng một thẻ
-    var input = card.querySelector('input[type="radio"]');
+// // Event listener cho các thẻ label
+// document.querySelectorAll(".journey__card").forEach(function (card) {
+//   // Tìm phần tử <a> có class là "label" trong từng thẻ
+//   var label = card.querySelector(".label");
 
-    // Nếu tìm thấy phần tử <input>, đặt thuộc tính checked của nó thành true
-    if (input) {
-      input.checked = true;
-    }
-  });
+//   // Thêm sự kiện click cho phần tử <a> tìm được
+//   label.addEventListener("click", function () {
+//     // Tìm phần tử <input> trong cùng một thẻ
+//     var input = card.querySelector('input[type="radio"]');
+
+//     // Nếu tìm thấy phần tử <input>, đặt thuộc tính checked của nó thành true
+//     if (input) {
+//       input.checked = true;
+//     }
+//   });
+// });
+
+// Function để xử lý khi click vào label
+function handleLabelClick(event) {
+  // Tìm thẻ cha (.journey__card) của label được click
+  var card = event.target.closest(".journey__card");
+
+  // Nếu không tìm thấy thẻ cha, không làm gì cả
+  if (!card) return;
+
+  // Tìm phần tử <input> trong cùng một thẻ
+  var input = card.querySelector('input[type="radio"]');
+
+  // Nếu tìm thấy phần tử <input>, đặt thuộc tính checked của nó thành true
+  if (input) {
+    input.checked = true;
+  }
+}
+
+// Thêm sự kiện click cho mỗi label
+document.querySelectorAll(".label").forEach(function (label) {
+  label.addEventListener("click", handleLabelClick);
 });
