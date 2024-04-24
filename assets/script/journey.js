@@ -33,7 +33,6 @@ journeyCard.forEach((card) => {
   });
 });
 
-
 // // Event listener cho các thẻ label
 // document.querySelectorAll(".journey__card").forEach(function (card) {
 //   // Tìm phần tử <a> có class là "label" trong từng thẻ
@@ -71,4 +70,11 @@ function handleLabelClick(event) {
 // Thêm sự kiện click cho mỗi label
 document.querySelectorAll(".label").forEach(function (label) {
   label.addEventListener("click", handleLabelClick);
+});
+
+// Thêm sự kiện change cho mỗi input
+document.querySelectorAll('input[type="radio"]').forEach(function (input) {
+  input.addEventListener("change", function (event) {
+    handleLabelClick(event);
+  });
 });
