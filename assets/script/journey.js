@@ -51,30 +51,17 @@ journeyCard.forEach((card) => {
 // });
 
 // Function để xử lý khi click vào label
-function handleLabelClick(event) {
-  // Tìm thẻ cha (.journey__card) của label được click
-  var card = event.target.closest(".journey__card");
-
-  // Nếu không tìm thấy thẻ cha, không làm gì cả
+function handleLabelChange(event) {
+  const input = event.target;
+  const card = input.closest(".journey__card");
   if (!card) return;
-
-  // Tìm phần tử <input> trong cùng một thẻ
-  var input = card.querySelector('input[type="radio"]');
-
-  // Nếu tìm thấy phần tử <input>, đặt thuộc tính checked của nó thành true
-  if (input) {
-    input.checked = true;
-  }
+  const label = card.querySelector(".label");
+  label.click();
 }
-
-// Thêm sự kiện click cho mỗi label
-document.querySelectorAll(".label").forEach(function (label) {
-  label.addEventListener("click", handleLabelClick);
-});
 
 // Thêm sự kiện change cho mỗi input
 document.querySelectorAll('input[type="radio"]').forEach(function (input) {
   input.addEventListener("change", function (event) {
-    handleLabelClick(event);
+    handleLabelChange(event);
   });
 });
